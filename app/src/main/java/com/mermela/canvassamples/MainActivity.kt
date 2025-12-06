@@ -5,10 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -17,18 +17,22 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
-import com.mermela.canvassamples.ui.text.CanvasText
-import com.mermela.canvassamples.ui.touch.MainScreen
+import com.mermela.canvassamples.ui.weightpicker.CustomWeightPicker
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Scaffold {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
                 //MyCanvas()
                 //MainScreen()
-                CanvasText(modifier = Modifier.fillMaxSize().padding(it))
+                //CanvasText(modifier = Modifier.fillMaxSize().padding(it))
+                CustomWeightPicker(modifier = Modifier.fillMaxSize())
+
             }
         }
     }
@@ -46,8 +50,8 @@ class MainActivity : ComponentActivity() {
             )
             drawRect(
                 color = Color.Red,
-                topLeft = Offset(100f,100f),
-                size = Size(100f,100f),
+                topLeft = Offset(100f, 100f),
+                size = Size(100f, 100f),
                 style = Stroke(
                     width = 5f,
                 )
